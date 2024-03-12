@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.22.1)
+
+project("cmake-testing")
+
+add_library(test_library test_library.cpp)
+
+add_executable(${PROJECT_NAME} main.cpp)
+
+target_link_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/build/)
+
+target_link_libraries(${PROJECT_NAME} test_library)
+
+# install(TARGETS ${PROJECT_NAME} DESTINATION bin)
