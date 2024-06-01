@@ -2,7 +2,12 @@ cmake_minimum_required(VERSION 3.22.1)
 
 project("cmake-testing" VERSION 1.0 DESCRIPTION "CMake experimentation" LANGUAGES CXX)
 
-add_executable(${PROJECT_NAME} src/engine.h src/engine.cpp src/utils.cpp src/utils.h src/main.cpp)
+# PROJECT_SOURCE_DIR is dir currently in
+set(source_dir "${PROJECT_SOURCE_DIR}/src/")
+
+file(GLOB source_files "${source_dir}/*.cpp" "${source_dir}/*.h")
+
+add_executable(${PROJECT_NAME} ${source_files})
 
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 
