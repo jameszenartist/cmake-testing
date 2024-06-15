@@ -5,6 +5,8 @@ project("cmake-testing" VERSION 1.0 DESCRIPTION "CMake experimentation" LANGUAGE
 # PROJECT_SOURCE_DIR is dir currently in
 set(source_dir "${PROJECT_SOURCE_DIR}/src/")
 
+include_directories("${source_dir}/include")
+
 file(GLOB source_files "${source_dir}/*.cpp" "${source_dir}/*.h")
 
 add_executable(${PROJECT_NAME} ${source_files})
